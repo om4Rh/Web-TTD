@@ -1,0 +1,40 @@
+.text{
+    flex: 1;
+}
+
+.nota_postit{
+    background-color: white;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0px 0px 1px;
+}
+
+.btnEliminar {
+    display: flex;
+    align-items: end;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 13px;
+    gap: 5px;
+    cursor: pointer;
+    color: rgb(250, 70, 38);
+    background-color: rgb(247, 218, 223);
+    font-size: 13px;
+}
+
+.taskInput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.btnAnotar {
+    padding: 15px 29px;
+    border-radius: 3px;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    gap: 10px;
+    background-color: rgb(96, 96, 222);
+}
