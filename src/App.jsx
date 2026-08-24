@@ -5,6 +5,7 @@ import trash from "./assets/trash2.png"
 import plus from "./assets/plus.png"
 import listgif from "./assets/list.gif"
 
+
 function App() {
   const [tasks, setTasks] = useState([
     {
@@ -31,6 +32,20 @@ function App() {
 
   const [inputTask, setInputTask] = useState("");
 
+
+  const editTask = ( idToEdit, newTask ) => {
+    const editedTask = tasks.map((task) => {
+      
+      if (task.id === idToEdit) {
+        return { ...task, titulo: newTask };
+      }
+
+      return task
+    })
+
+    setTasks(editedTask);
+  }
+
   
   const addTask = () => {
     if (inputTask.trim() === "") return; 
@@ -51,6 +66,7 @@ function App() {
     setTasks(updatedTasks);
   };
 
+
   return (
     <div className='nota_postit' style={{ padding: '20px' }}>
       <h2 className='title'>
@@ -68,6 +84,9 @@ function App() {
                 <img className='btn-icon' src={trash}/>
                 Eliminar
               </button>
+              <button className='btnEditar' onClick={() => editTask(taskItem.id, inputTask)}>
+                Editar
+              </button>
           </li>
         ))}
       </ul>
@@ -75,7 +94,7 @@ function App() {
         <input
           type="text" 
           placeholder='Proxima tarea' 
-          value={inputTask}
+          value={inputTask || ''}
           onChange={(e) => setInputTask(e.target.value)}
         />
           <button className='btnAnotar' onClick={addTask}>
@@ -83,8 +102,7 @@ function App() {
             Anotar
             </button>
         </div>
-    </div>
-    
+    </div>  
   );
 }
 
